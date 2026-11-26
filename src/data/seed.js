@@ -29,7 +29,7 @@ export const ANIME = [
     studio: 'CloverWorks',
     tags: ['音乐', '日常', '青春'],
     summary:
-      '社恐少女后藤一里抱着吉他躲进衣柜，却被拉进了一支只有三个人的乐队。练琴是为了不和人说话，站上舞台却是为了把话说出来。',
+      '绰号「小孤独」的后藤一里极度认生，只敢在网上以「吉他英雄」之名弹琴。被鼓手伊地知虹夏拉进「结束乐队」后，她才开始在 Livehouse 里学着和人一起演奏。',
     cover: { src: './covers/a001.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#FF6F61',
     externalScore: 9.1,
@@ -45,7 +45,7 @@ export const ANIME = [
     studio: 'MADHOUSE',
     tags: ['奇幻', '治愈', '公路'],
     summary:
-      '勇者一行打倒魔王之后，精灵魔法使芙莉莲才开始学着理解「人」。一场迟到八十年的告别，慢慢走成了新的旅程。',
+      '打倒魔王之后，活了一千多年的精灵魔法师芙莉莲才在勇者辛美尔的葬礼上发现：自己从没「了解人类」。她带着菲伦与休塔尔克重新上路，走向灵魂安眠之地。',
     cover: { src: './covers/a002.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#7FD9C4',
     externalScore: 9.4,
@@ -61,7 +61,7 @@ export const ANIME = [
     studio: 'WIT STUDIO',
     tags: ['热血', '战斗', '剧情'],
     summary:
-      '城墙之内是人类最后的土地。当超大型巨人踏破城门，艾伦失去了一切，也第一次看清了「自由」的形状。',
+      '巨人支配的世界里，人类用五十米高墙换来百年和平。十岁的艾伦向往墙外，直到超大型巨人踏破城门、母亲被吃掉——他发誓驱逐所有巨人，却发现自己也能变成巨人。',
     cover: { src: './covers/a003.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#E8503F',
     externalScore: 9.4,
@@ -77,7 +77,7 @@ export const ANIME = [
     studio: 'CoMix Wave Films',
     tags: ['恋爱', '奇幻', '青春'],
     summary:
-      '住在山间小镇的三叶和东京少年泷，在梦里交换了身体。等到想见面时，才发现隔着的不只是距离。',
+      '深山小镇的宫水三叶与东京少年立花泷开始定期在梦里交换身体，靠留言寻找彼此。当彗星坠落、记忆开始脱落，他们必须赶在灾难前改变命运。',
     cover: { src: './covers/a004.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#9FD3F2',
     externalScore: 9.1,
@@ -93,7 +93,7 @@ export const ANIME = [
     studio: 'White Fox',
     tags: ['悬疑', '科幻', '剧情'],
     summary:
-      '自称疯狂科学家的冈部伦太郎，把香蕉送进了微波炉。从那天起，每一条世界线都开始收取代价。',
+      '自称「凤凰院凶真」的大学生冈部伦太郎在秋叶原做古怪发明。目睹牧濑红莉栖倒在血泊、发出那条短信之后，世界线开始改变，他成了孤独的观测者。',
     cover: { src: './covers/a005.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#C7B4F2',
     externalScore: 9.6,
@@ -108,7 +108,8 @@ export const ANIME = [
     episodes: 13,
     studio: '京都动画',
     tags: ['治愈', '剧情', '恋爱'],
-    summary: '战争结束了，少女却还留在战场上。她开始替别人写信，也在别人的话里找「我爱你」的意思。',
+    summary:
+      '战后，原为军人的少女薇尔莉特成了替人代笔的「自动手记人偶」。在一封封别人的信里，她慢慢弄懂了重要之人留下的那句话，和「爱」是什么意思。',
     cover: { src: './covers/a006.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#FFB3C7',
     externalScore: 9.2,
@@ -124,7 +125,7 @@ export const ANIME = [
     studio: 'MAPPA',
     tags: ['热血', '战斗', '奇幻'],
     summary:
-      '吞下特级咒物后，虎杖悠仁成了诅咒本身。他给自己定了一个期限：死之前，要让所有人都得到正确的死亡。',
+      '高中生虎杖悠仁吞下特级咒物「两面宿傩之指」，与诅咒之王合二为一。为完成爷爷「助人」的遗言，他进入东京咒术高专，成为「为祓除诅咒而成为诅咒」的少年。',
     cover: { src: './covers/a007.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#FFD84D',
     externalScore: 8.6,
@@ -140,7 +141,7 @@ export const ANIME = [
     studio: 'WIT STUDIO × CloverWorks',
     tags: ['日常', '搞笑', '家庭'],
     summary:
-      '间谍、杀手、读心少女，三个人各自藏着一个秘密，凑成了一个家。任务代号：梟。',
+      '东西冷战年代，间谍「黄昏」接到任务「枭」：一周内组建家庭，潜入名校联谊会。他领养的女儿阿尼亚会读心，妻子约尔是杀手——三个各藏秘密的人，凑成了一个家。',
     cover: { src: './covers/a008.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#D8D2C4',
     externalScore: 8.6,
@@ -156,7 +157,7 @@ export const ANIME = [
     studio: 'Kinema Citrus',
     tags: ['奇幻', '猎奇', '剧情'],
     summary:
-      '巨洞「深渊」里埋着全世界的谜。少女莉可和机器人雷古往下走，每下一层，回来的代价就更高一点。',
+      '世界已被探索殆尽，只剩巨洞「阿比斯」。孤儿莉可梦想成为像母亲那样的探窟家，在深渊里捡到失忆机器人雷格，两人一同下潜——每下一层，回来的代价就更高。',
     cover: { src: './covers/a009.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#8FD1B5',
     externalScore: 9.0,
@@ -172,7 +173,7 @@ export const ANIME = [
     studio: 'GAINAX',
     tags: ['科幻', '剧情', '猎奇'],
     summary:
-      '第三次冲击之后，十四岁的碇真嗣被叫来驾驶EVA。他不想战斗，也不知道除了战斗还能怎么被需要。',
+      '公元 2000 年的「第二次冲击」之后，2015 年出现的「使徒」让人类武器全部失效。NERV 造出泛用人形兵器 EVA，把希望寄托在仅有的三名适格少年少女身上。',
     cover: { src: './covers/a010.jpg', source: '占位图', credit: '课程演示用' },
     accent: '#B9A8E8',
     externalScore: 9.3,
@@ -183,8 +184,8 @@ export const ANIME = [
 /** 演示账号：都是"本地模拟"，密码明文写在 README 里方便老师验收 */
 export const DEMO_ACCOUNTS = [
   { username: 'demo', password: 'demo1234', nickname: '煌' },
-  { username: 'azhe', password: 'azhe1234', nickname: '阿哲' },
-  { username: 'xiaoman', password: 'xiaoman1234', nickname: '小满' },
+  { username: 'azhe', password: 'demo1234', nickname: '阿哲' },
+  { username: 'xiaoman', password: 'demo1234', nickname: '小满' },
 ]
 
 const AVATAR_SEEDS = ['#FFB3C7', '#9FD3F2', '#C7B4F2', '#FFD84D', '#7FD9C4', '#FF6F61']
