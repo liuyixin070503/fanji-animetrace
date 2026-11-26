@@ -1,0 +1,18 @@
+# 依赖与产物
+node_modules/
+dist/
+.npm-cache/
+*.local
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# 日志
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*

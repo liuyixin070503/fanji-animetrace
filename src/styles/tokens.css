@@ -1,0 +1,117 @@
+/* =========================================================
+ * tokens.css —— 全站唯一的变量出口（A 维护，其他人只读）
+ * 改这里等于改全站：颜色、字号、间距、圆角、阴影、动效曲线
+ * 千万别在业务组件里写死色值，一律 var(--xxx)
+ * ========================================================= */
+:root {
+  /* ---- 纸与墨：底层中性色 ---- */
+  --paper: #fbf6ec;
+  --paper-2: #f6eedd;
+  --paper-3: #fffdf7;
+  --ink: #1b1b1b;
+  --ink-2: #3d3a35;
+  --ink-3: #6b665c;
+  --cream: #f1e7d5;
+  --line: #1b1b1b;
+
+  /* ---- 品牌色：来自 design/app 的五张静态稿 ---- */
+  --coral: #ff6f61;
+  --coral-deep: #e8503f;
+  --coral-soft: #ffe3de;
+  --sun: #ffd84d;
+  --sun-soft: #fff2c2;
+  --mint: #7fd9c4;
+  --mint-soft: #d8f5ee;
+  --sky: #9fd3f2;
+  --sky-soft: #e0f2fd;
+  --pink: #ffb3c7;
+  --pink-soft: #ffe4ec;
+  --lilac: #c7b4f2;
+  --lilac-soft: #ece5ff;
+  --clay: #7a4a57;
+  --pink-deep: #f06c91;
+
+  /* ---- 全站背景照片 + 薄纱（改这两个值就换背景浓度） ---- */
+  --bg-photo: url('/bg/sakura.jpg');
+  --veil: 0.55;
+
+  /* ---- 语义色 ---- */
+  --success: #2f9e79;
+  --warning: #d99b1c;
+  --danger: #e04b3f;
+  --info: #3b7fb0;
+
+  /* ---- 观看状态色（番剧角标 / 手帐卡 / 统计图共用） ---- */
+  --st-want: #c7b4f2;
+  --st-watching: #9fd3f2;
+  --st-watched: #7fd9c4;
+  --st-hold: #d6cfc0;
+  --st-drop: #f5a3a3;
+
+  /* ---- 字号阶梯 ---- */
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 17px;
+  --fs-lg: 20px;
+  --fs-xl: 26px;
+  --fs-2xl: 34px;
+  --fs-3xl: 44px;
+  --lh-tight: 1.25;
+  --lh-base: 1.62;
+
+  /* ---- 间距：4 的倍数，只准用这几个档 ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* ---- 边框 / 圆角 / 阴影（手帐风硬边） ---- */
+  --bw: 2px;
+  --border: 2px solid var(--ink);
+  --border-soft: 2px solid rgba(27, 27, 27, 0.16);
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-hard-sm: 2px 2px 0 var(--ink);
+  --shadow-hard-lg: 6px 6px 0 var(--ink);
+  --shadow-soft: 0 6px 18px rgba(27, 27, 27, 0.12);
+
+  /* ---- 字体 ---- */
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui,
+    -apple-system, sans-serif;
+  --font-display: 'Noto Serif SC', 'Songti SC', SimSun, Georgia, serif;
+  --font-mono: 'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace;
+
+  /* ---- 布局 ---- */
+  --container: 1200px;
+  --header-h: 64px;
+  --tabbar-h: 62px;
+  --auth-max: 420px;
+
+  /* ---- 动效 ---- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+
+  /* ---- 层级 ---- */
+  --z-header: 30;
+  --z-tabbar: 30;
+  --z-dropdown: 40;
+  --z-modal: 60;
+  --z-toast: 80;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+  }
+}
