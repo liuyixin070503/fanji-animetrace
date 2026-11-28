@@ -45,9 +45,18 @@ npm run dev        # http://localhost:5173
 | --- | --- | --- | --- |
 | 账号 | [/login](src/views/auth/LoginView.vue) · [/register](src/views/auth/RegisterView.vue) | A | 登录、注册、`?redirect=` 回跳、刷新保持登录、全局路由守卫 |
 | 番剧库 | [/library](src/views/anime/AnimeLibraryView.vue) | B | 搜索（标题/日文名/制作公司）· 标签/年份/状态组合筛选 · 三种排序 · 分页 · 双视图 · 详情弹窗 |
-| 手帐 | [/journal](src/views/journal/JournalView.vue) · [/journal/new](src/views/journal/JournalEditView.vue) · [/journal/:id](src/views/journal/JournalDetailView.vue) | C | 手帐墙 · 新建/编辑表单 · 详情 |
+| 手帐 | [/journal](src/views/journal/JournalView.vue) · [/journal/new](src/views/journal/JournalEditView.vue) · [/journal/:id](src/views/journal/JournalDetailView.vue) | C | 手帐墙（状态 tab 计数 / 排序 / 空态）· 新建/编辑表单（导入查重、进度夹取、0.5 步进评分）· 详情与二次确认删除 |
 | 论坛 | [/forum](src/views/forum/ForumListView.vue) · [/forum/new](src/views/forum/PostCreateView.vue) · [/forum/:id](src/views/forum/PostDetailView.vue) | D | 板块筛选 · 发帖 · 详情 · 评论 · 点赞 |
 | 个人中心 | [/profile](src/views/profile/ProfileView.vue) | E | 资料卡 · 状态环图 · 评分柱图 · 标签条形图 · 月度热力图 · 重置数据 |
+
+## 手帐模块（C 交付说明）
+
+- **三个视图**：`JournalView.vue`（墙 + 状态 tab + 最近更新/评分排序 + 空态）、`JournalEditView.vue`（新建/编辑复用，`route.meta.mode` 区分）、`JournalDetailView.vue`（直达/刷新、编辑、删除二次确认）。
+- **五个组件**：`JournalCard`（按 id 哈希固定 ±2.5° 倾斜）、`JournalWall`（按 `STATUS_LIST` 分组）、`JournalForm`、`RatingInput`（0.5 步进）、`StatusTabs`；素材 `src/assets/journal/tape.svg`。
+- **数据口径**：只调 `db.js` 的 `listAnime / getAnime / listJournal / getJournal / getJournalByAnime / saveJournal / removeJournal / currentUserId`；tab 计数用 `useStats().statusDistribution`，提示用 `useToast`，删除走公共件 `ConfirmDialog`，不复制别人的筛选逻辑。
+- **关键行为**：`?animeId=` 导入时查重并跳已有详情；进度夹在 0–总集数，状态改「看过」自动补满；评分留空存 `null` 不计均分；短评 ≤200 / 金句 ≤60 / 心情最多 3；不存在的 id 显示空态而非白屏。
+- **交互约定**：评分每颗星分左右两个热区——左半 = 0.5 档，右半 = 整数档，悬停会预览分数并显示 `x.5 / x` 提示；再点同一档取消评分。卡片「查看 / 编辑 / 删除」三个按钮常显且等宽，窄屏（≤767px）也不会溢出卡片；查看跳 `journal-detail`，编辑跳 `journal-edit`，均按路由 name 跳转。
+- **自检**：`npm run lint && npm run verify && npm run build` 全绿后再提 PR。
 
 ## 路由表
 
@@ -93,9 +102,12 @@ Hash 模式（`createWebHashHistory`），静态托管不需要 404 回退。
    ├─ stores/session.js        # Pinia，只存登录态
    ├─ composables/             # useForm  useToast  usePagination  useStats
    ├─ utils/                   # format.js  hash.js
+   ├─ assets/
+   │  └─ journal/              # tape.svg（手帐卡胶带，C）
    ├─ components/
    │  ├─ ui/                   # 12 个基础件
-   │  └─ layout/               # AppHeader  AppFooter  AppLogo  MobileTabBar  AuthShell  PageStub
+   │  ├─ layout/               # AppHeader  AppFooter  AppLogo  MobileTabBar  AuthShell  PageStub
+   │  └─ journal/              # C：Card / Wall / Form / RatingInput / StatusTabs
    └─ views/                   # auth / anime / journal / forum / profile
 ```
 
@@ -113,6 +125,7 @@ Hash 模式（`createWebHashHistory`），静态托管不需要 404 回退。
 | 路由与全局守卫 | [src/router/index.js](src/router/index.js) |
 | 登录态 | [src/stores/session.js](src/stores/session.js) |
 | 表单、Toast、分页、统计 | [src/composables/](src/composables) |
+| 手帐模块（C）的实现与组件 | [src/views/journal/](src/views/journal) · [src/components/journal/](src/components/journal) |
 
 ## 技术栈与硬性约束
 
@@ -143,7 +156,7 @@ Hash 模式（`createWebHashHistory`），静态托管不需要 404 回退。
 | --- | --- | --- |
 | **A 组长 · 架构** | 工程地基、数据层、公共件、登录注册、集成与部署 | `package.json` `vite.config.js` `router` `styles` `types` `data` `stores` `composables` `utils` `components/ui` `components/layout` `App.vue` `main.js` |
 | **B · 番剧库** | 检索筛选排序分页、双视图、详情弹窗 | `views/anime` |
-| **C · 手帐** | 手帐墙、编辑表单、详情 | `views/journal` |
+| **C · 手帐** | 手帐墙、编辑表单、详情 | `views/journal` `components/journal` `assets/journal` |
 | **D · 论坛** | 列表、发帖、详情、评论点赞 | `views/forum` |
 | **E · 个人中心** | 资料卡、四图可视化、重置数据 | `views/profile` |
 
